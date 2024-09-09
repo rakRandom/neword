@@ -95,6 +95,11 @@
                 JSON File
             </button>
         </li>
+        <li>
+            <button type="button" on:click={downloadHTMLFile}>
+                HTML File
+            </button>
+        </li>
     </ul>
     {/if}
 </div>
