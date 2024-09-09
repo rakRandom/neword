@@ -1,0 +1,81 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+npx tailwindcss -i ./src/input.css -o ./static/output.css --watch
+*/
+
+:root {
+    --l-title-color: #202020;
+    --l-body-color: #202020;
+    --l-color-1: #FFFFFF;
+    --l-color-2: #f97316;
+    --l-color-3: ;
+    --l-color-4: ;
+
+    --d-title-color: #FDFDFD;
+    --d-body-color: #FDFDFD;
+    --d-color-1: #181818;
+    --d-color-2: #404040;
+    --d-color-3: ;
+    --d-color-4: ;
+}
+
+body {
+    @apply
+        text-[var(--l-body-color)]
+        bg-[var(--l-color-1)]
+        dark:text-[var(--d-body-color)]
+        dark:bg-[var(--d-color-1)]
+    ;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    @apply
+        text-[var(--l-title-color)]
+        dark:text-[var(--d-title-color)]
+    ;
+}
+
+@layer components {
+    .square-button {
+        @apply 
+            aspect-square 
+            border-2 
+            border-[var(--l-color-2)] 
+            dark:border-[var(--d-color-2)] 
+            rounded-md
+        ;
+    }
+
+    .regular-button {
+        @apply 
+            hover:text-[var(--d-title-color)] 
+            hover:bg-[var(--l-color-2)] 
+            hover:dark:bg-[var(--d-color-2)]
+        ;
+    }
+
+    .regular-border {
+        @apply 
+            border-2 
+            border-[var(--l-color-2)] 
+            dark:border-[var(--d-color-2)] 
+            rounded-md
+        ;
+    }
+
+    .regular-hr {
+        @apply 
+            border-t-2 border-[var(--l-color-2)] 
+            dark:border-[var(--d-color-2)] 
+            shadow
+        ;
+    }
+}
