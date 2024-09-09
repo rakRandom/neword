@@ -45,6 +45,18 @@
         download(JSON.stringify(fileContent, null, 4), "application/json", "json");
     }
 
+    function downloadHTMLFile() {
+        let html: string = `<div><h1>${fileContent.title}</h1><ul>`;
+
+        fileContent.body.forEach(paragraph => {
+            html += `<li><p>${paragraph}</p></li>`;
+        });
+
+        html += "</ul></div>\n";
+
+        download(html, "text/html", "html");
+    }
+
     let active = false;
 </script>
 
