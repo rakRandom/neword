@@ -1,7 +1,9 @@
 <script lang="ts">
+	import type { Section } from "./types";
+
     type FileContent = {
         title: string,
-        body: string[]
+        body: Section[]
     };
 
     export let fileContent: FileContent;
@@ -24,8 +26,8 @@
     function downloadPlainText() {
         let text = `*** ${fileContent.title} ***\n`;
 
-        fileContent.body.forEach(paragraph => {
-            text += `\n${paragraph}\n`;
+        fileContent.body.forEach(section => {
+            text += `\n${section.text}\n`;
         });
 
         download(text, "text/plain", "txt");
@@ -34,8 +36,8 @@
     function downloadMarkdown() {
         let text = `# ${fileContent.title}\n`;
 
-        fileContent.body.forEach(paragraph => {
-            text += `\n${paragraph}\n`;
+        fileContent.body.forEach(section => {
+            text += `\n${section.text}\n`;
         });
 
         download(text, "text/markdown", "md");
@@ -48,8 +50,8 @@
     function downloadHTMLFile() {
         let html: string = `<div><h1>${fileContent.title}</h1><ul>`;
 
-        fileContent.body.forEach(paragraph => {
-            html += `<li><p>${paragraph}</p></li>`;
+        fileContent.body.forEach(section => {
+            html += `<li><p>${section.text}</p></li>`;
         });
 
         html += "</ul></div>\n";
