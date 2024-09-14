@@ -4,7 +4,7 @@
 	import { enterEditMode, exitEditMode, textAreaKeyDown } from "./utilsEdit";
 	import type { Content } from "./types";
 
-	let editing = false;
+	let editing = true;
 
 	let content: Content = {
 		title: "NeWord",
@@ -26,8 +26,10 @@
 </script>
 
 <!-- Main Section: Title and Sections -->
-<div class="flex-col gap-8 mx-auto w-fit pt-16">
+<div class="flex flex-col gap-8 mx-auto w-fit pt-16">
+	{#if editing}
 	<MenuBar />
+	{/if}
 	
 	<EditCanva 
 		editMethods={{enterEditMode, exitEditMode, textAreaKeyDown, setContent}}

@@ -5,6 +5,29 @@ enum FontWeight {
     Bold
 };
 
+enum MeasurementUnit {
+    Rem,
+    Em,
+    Px,
+    Pt
+};
+
+enum TextAlign {
+    Left,
+    Right,
+    Center,
+    Justify
+};
+
+enum TextDecoration {
+    None,
+    NormalUnderline,
+    WavyUnderline,
+    NormalOverline,
+    WavyOverline,
+    LineThrough
+};
+
 class Color {
     private red: number;
     private green: number;
@@ -31,18 +54,40 @@ class Color {
 
         return `#${red}${green}${blue}`;
     }
-}
+};
 
 Color.prototype.toString = function() {
     return this.getColor();
-}
+};
+
+type Margin = {
+    top: number,
+    bottom: number
+};
+
+type Padding = {
+    top: number,
+    left: number,
+    right: number,
+    bottom: number
+};
 
 type Style = {
-    fontWeight: FontWeight | null,
-    fontSize: number | null,
-    indent: number | null,
-    italic: boolean | null,
-    color: Color | null
+    measurementUnit: MeasurementUnit | undefined,
+    
+    margin: Margin,
+    padding: Padding,
+
+    textColor: Color | undefined,
+    backgroundColor: Color | undefined,
+
+    fontWeight: FontWeight | undefined,
+    fontSize: number | undefined,
+    isItalic: boolean | undefined,
+    
+    indent: number | undefined,
+    textAlign: TextAlign,
+    textDecoration: TextDecoration
 };
 
 type Section = {
